@@ -1,6 +1,5 @@
 @import 'settings.colors';
 @import 'settings.fonts';
-
 :host{
     position: relative;
     perspective: 300px;
@@ -34,7 +33,7 @@
         flex: 1;
     }
     &-stats{
-        font-family: HelveticaNeue;
+        font-family: $fontFamily;
         font-size: 1.3rem;
         /deep/ svg {
             width: 15.5px;

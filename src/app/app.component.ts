@@ -1,21 +1,14 @@
-import { Component } from '@angular/core';
-import { MovieService } from './core/movie.service';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mm-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  public movies$: Observable<Array<any>>;
-  public selectedMovie: any;
+export class AppComponent implements OnInit {
 
-  constructor(private _movieService: MovieService) {
-    this.movies$ = this._movieService.getMovies();
-  }
+  constructor() { }
 
-  selectMovie(movie) {
-    this.selectedMovie = movie;
+  ngOnInit() {
   }
 }

@@ -1,15 +1,16 @@
+@import 'settings.fonts';
 
 @font-face {
-    font-family: 'HelveticaNeue';
+    font-family: $fontFamily;
     src: url('../fonts/HelveticaNeueLight.ttf'); /* IE9 Compat Modes */
     src: url('../fonts/HelveticaNeueLight.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
   }
-  html { 
+  html {
     font-size: 62.5%;
     height: 100%;
  }
   body{
       font-size: 1.6rem;
-      font-family: HelveticaNeue;
+      font-family: $fontFamily;
       height: 100%;
   }

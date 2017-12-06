@@ -1,21 +1,45 @@
-import { NgModule } from '@angular/core';
+import { AuthInterceptor } from './http.interceptor';
+import { RouterModule } from '@angular/router';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../header/header.component';
-import { SearchComponent } from '../search/search.component';
+import { SvgDefinitionsComponent } from './svg-definitions/svg-definitions.component';
 import { MovieService } from './movie.service';
+import { SharedModule } from '../shared/index';
+import { AuthService } from './auth.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProxyRouteComponent } from './proxy-route/proxy-route.component';
+import { AccountService } from './account.service';
+import { accountLoader } from './account.loader';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
+    CommonModule,
+    HttpClientModule,
+    RouterModule
   ],
   declarations: [
-    HeaderComponent,
-    SearchComponent
+    SvgDefinitionsComponent,
+    ProxyRouteComponent
   ],
   exports: [
-    HeaderComponent,
-    SearchComponent
+    SvgDefinitionsComponent
   ],
-  providers: [MovieService]
+  providers: [
+    AuthService,
+    MovieService,
+    AccountService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: accountLoader,
+      deps: [AuthService],
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ]
 })
 export class CoreModule { }

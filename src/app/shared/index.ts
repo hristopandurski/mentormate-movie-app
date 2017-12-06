@@ -5,7 +5,7 @@ import { MoviePosterComponent } from './components/movie-poster/movie-poster.com
 import { TintDirective } from './directives/tint.directive';
 import { ButtonComponent } from './components/button/button.component';
 import { AutoFocusDirective } from './directives/auto-focus.directive';
-import { ColorExtractorDirective } from './directives/color-extractor.directive';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { ColorExtractorDirective } from './directives/color-extractor.directive'
     TintDirective,
     ButtonComponent,
     AutoFocusDirective,
-    ColorExtractorDirective
+    SpinnerComponent
   ],
   exports: [
     IconComponent,
@@ -25,7 +25,7 @@ import { ColorExtractorDirective } from './directives/color-extractor.directive'
     TintDirective,
     ButtonComponent,
     AutoFocusDirective,
-    ColorExtractorDirective
+    SpinnerComponent
   ]
 })
 export class SharedModule { }
