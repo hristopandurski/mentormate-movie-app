@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       this.loading = true;
       this._authService.getSession(request_token)
         .subscribe(_ => {
-          this._router.navigate(['/home']);
+          this._router.navigate(['/']);
         });
     } else {
       throw new Error('No token or request denied.');

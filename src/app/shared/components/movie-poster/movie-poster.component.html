@@ -1,9 +1,9 @@
-<section class="movie-poster"  [class.movie-poster--active]="isSelected" (click)="clickMoviePoster($event, movie)">
+<section class="movie-poster"  [class.movie-poster--active]="!isNotFlippable && isSelected" (click)="clickMoviePoster($event, movie)">
   <section class="movie-poster__rotator">
     <div class="movie-poster--front" mmTint>
-      <img class="movie-poster__photo" [src]="moviesUrl + movie.posterPath" />
+      <img class="movie-poster__photo" [src]="'https://image.tmdb.org/t/p//w300/'+movie.posterPath" />
     </div>
-    <div class="movie-poster--back" *ngIf="isSelected">
+    <div class="movie-poster--back" *ngIf="!isNotFlippable && isSelected">
       <mm-icon class="movie-poster__close-button" name="close" (click)="clickMoviePoster($event, null, true)"></mm-icon>
       <div class="movie-poster__content column">
         <div class="row row--no-margin movie-poster-overview">

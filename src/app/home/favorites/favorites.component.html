@@ -1,0 +1,5 @@
+<section class="center-xs row row--no-margin">
+  <mm-movie-grid class="col-xs-12 col-lg-10" [movies]="(movies$|async)?.results" [isToggleable]="true" [isInToggleMode]="isCollectingMovies$|async"
+    (movieCollected)="collectMovie($event)" (movieListToggled)="toggleMovieList($event)">
+  </mm-movie-grid>
+</section>

@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProxyRouteComponent } from './proxy-route/proxy-route.component';
 import { AccountService } from './account.service';
 import { accountLoader } from './account.loader';
+import { SearchItemComponent } from './search/search-item/search-item.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { accountLoader } from './account.loader';
   ],
   declarations: [
     SvgDefinitionsComponent,
-    ProxyRouteComponent
+    ProxyRouteComponent,
+    SearchItemComponent
   ],
   exports: [
     SvgDefinitionsComponent

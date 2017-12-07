@@ -8,7 +8,7 @@ const routes: Routes = [
         loadChildren: './login/login.module#LoginModule',
     },
     {
-        path: 'home',
+        path: '',
         loadChildren: './home/home.module#HomeModule',
     },
     {
@@ -25,7 +25,7 @@ const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/home'
+        redirectTo: '/'
     }
 ];
 

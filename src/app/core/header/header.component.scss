@@ -1,12 +1,15 @@
 @import 'settings.colors';
+@import 'settings.fonts';
 .header{
-    // background-color: $mainColor;
     display: flex;
     align-items: center;
     height: 95px;
-    box-shadow: 0 2px 5px -1px rgba(50, 50, 50, 0.35);
+    box-shadow: 0px 2px 5px -1px rgba(50, 50, 50, 0.35);
     position: relative;
     z-index: 1;
+    background-color: #fff;
+    transition: 0.25s all;
+    transform: translate3d(0,0,0);
     .logo{
         /deep/ svg{
             width: 50px;
@@ -14,9 +17,14 @@
             fill: $mainColor;
         }
     }
+    &--is-collecting{
+        background: $mainColor;
+        height: 155px;
+        box-shadow: 0px 2px 5px 1px rgba(50, 50, 50, 0.55);
+    }
     &__navigation{
         &-item{
-                border-bottom: 0 transparent;
+                border-bottom: 0px  transparent;
                 margin-right: 35px;
             /deep/ svg{
                 width: 30px;
@@ -32,4 +40,16 @@
             }
         }
     }
+    &__collectables-counter{
+        font-size: $fontSizeHumongous;
+        color: #fff;
+        padding-right: 50px;
+    }
+    /deep/ mm-movie-poster{
+        img{
+            height: 125px;
+            width: auto;
+        }
+    }
 }
+

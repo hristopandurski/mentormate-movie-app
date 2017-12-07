@@ -21,7 +21,7 @@ export class TintDirective implements OnInit, OnDestroy {
 
         this.mouseOutSubscription = Observable.fromEvent(this.elementRef.nativeElement, 'mouseout')
             .subscribe((e: MouseEvent) => {
-                this.renderer.setElementStyle(this.elementRef.nativeElement, 'transform', 'scale(1) translateY(0px) rotateX(0deg) rotateY(0deg)');
+                this.renderer.setElementStyle(this.elementRef.nativeElement, 'transform', 'translateY(0px) rotateX(0deg) rotateY(0deg)');
                 this.renderer.setElementStyle(this.elementRef.nativeElement.querySelector('.tint'), 'background', 'none');
             });
         this.mouseMovesSubscription =
@@ -44,7 +44,7 @@ export class TintDirective implements OnInit, OnDestroy {
                     };
                 })
                 .subscribe(({ offsetX, offsetY, offsetPoster, angle, gradientOpacity }) => {
-                    this.renderer.setElementStyle(this.elementRef.nativeElement, 'transform', `scale(1.05) translateX(${-offsetY * offsetPoster}px) translateY(${-offsetX * offsetPoster}px) rotateX(${offsetY * offsetPoster}deg) rotateY(${-offsetX * offsetPoster * 2}deg)`);
+                    this.renderer.setElementStyle(this.elementRef.nativeElement, 'transform', `translateX(${-offsetY * offsetPoster}px) translateY(${-offsetX * offsetPoster}px) rotateX(${offsetY * offsetPoster}deg) rotateY(${-offsetX * offsetPoster * 2}deg)`);
                     this.renderer.setElementStyle(this.elementRef.nativeElement.querySelector('.tint'), 'background', 'linear-gradient(' + (angle - 90) + 'deg, rgba(255,255,255,' + gradientOpacity + ') 0%,rgba(255,255,255,0) 70%)');
                 });
     }

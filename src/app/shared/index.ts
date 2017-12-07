@@ -6,10 +6,18 @@ import { TintDirective } from './directives/tint.directive';
 import { ButtonComponent } from './components/button/button.component';
 import { AutoFocusDirective } from './directives/auto-focus.directive';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FabComponent } from './components/fab/fab.component';
+import { LimitedCharacterTextareaComponent } from './components/limited-character-textarea/limited-character-textarea.component';
+import { AddToListFormComponent } from './components/add-to-list-form/add-to-list-form.component';
+import { MaxCharacterCountValidator } from './directives/max-character-count.directive';
+import { MovieGridComponent } from './components/movie-grid/movie-grid.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   declarations: [
     IconComponent,
@@ -17,7 +25,13 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     TintDirective,
     ButtonComponent,
     AutoFocusDirective,
-    SpinnerComponent
+    SpinnerComponent,
+    FabComponent,
+    LimitedCharacterTextareaComponent,
+    AddToListFormComponent,
+    MaxCharacterCountValidator,
+    MovieGridComponent,
+    MovieListComponent
   ],
   exports: [
     IconComponent,
@@ -25,7 +39,12 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     TintDirective,
     ButtonComponent,
     AutoFocusDirective,
-    SpinnerComponent
+    SpinnerComponent,
+    FabComponent,
+    LimitedCharacterTextareaComponent,
+    AddToListFormComponent,
+    MovieGridComponent,
+    MovieListComponent
   ]
 })
 export class SharedModule { }

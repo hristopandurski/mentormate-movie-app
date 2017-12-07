@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'mm-icon',
@@ -7,7 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
     <svg class="svg-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <use [attr.xlink:href]="'#'+name"></use>
     </svg>
-    `
+    `,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IconComponent implements OnInit {
   @Input() name: string;

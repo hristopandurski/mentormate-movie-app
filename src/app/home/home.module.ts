@@ -7,6 +7,10 @@ import { HeaderComponent } from '../core/header/header.component';
 import { SearchComponent } from '../core/search/search.component';
 import { SharedModule } from '../shared/index';
 import { AuthGuard } from '../core/auth.guard';
+import { NowPlayingComponent } from './now-playing/now-playing.component';
+import { MovieListsComponent } from './movie-lists/movie-lists.component';
+import { MovieListDetailsComponent } from './movie-list-details/movie-list-details.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   imports: [
@@ -20,7 +24,11 @@ import { AuthGuard } from '../core/auth.guard';
   declarations: [
     HomeComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    NowPlayingComponent,
+    MovieListsComponent,
+    MovieListDetailsComponent,
+    FavoritesComponent
   ]
 })
 export class HomeModule { }

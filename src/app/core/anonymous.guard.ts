@@ -13,7 +13,7 @@ export class AnonymousGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> {
     return this._authService.currentAccount$.map(account => {
       if (account) {
-        this._router.navigate(['/home']);
+        this._router.navigate(['/']);
         return false;
       } else {
         return true;

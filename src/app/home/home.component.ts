@@ -1,31 +1,39 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subject } from 'rxjs/Subject';
 import { Movie, Results, Account } from '../shared/models';
-import { AuthService } from './../core/auth.service';
-import { AccountService } from './../core/account.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { ICreateList } from '../shared/interfaces';
 import { MovieService } from '../core/movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mm-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  public movies$: Observable<Results<Movie>>;
-  public account$: Observable<Account>;
-  public selectedMovie: Movie;
-  public movieDetails: Movie;
+  public collectedMovies$: BehaviorSubject<Array<Movie>> = this._movieService.collectedMovies$;
+  public isCollectingMovies$: BehaviorSubject<boolean> = this._movieService.isCollectingMovies$;
+  public isCreateListFormShown = false;
 
-  constructor(private _movieService: MovieService, private _authService: AuthService) { }
+  constructor(private _movieService: MovieService, private _router: Router) { }
 
-  selectMovie(movie) {
-    this.selectedMovie = movie;
+  showCreateListForm() {
+    this.isCreateListFormShown = true;
+  }
+  closeCreateListForm() {
+    this.isCreateListFormShown = false;
   }
 
-  ngOnInit() {
-    this.account$ = this._authService.currentAccount$;
-    this.movies$ = this._movieService.getNowPlayingMovies();
+  addMoviesToList(createListModel: ICreateList) {
+    this._movieService.createMovieList(createListModel, this.collectedMovies$.getValue())
+      .subscribe(list_id => {
+        this.collectedMovies$.next([]);
+        this.isCollectingMovies$.next(false);
+        this.isCreateListFormShown = false;
+        this._router.navigate(['/lists', list_id]);
+      });
   }
-
 }
