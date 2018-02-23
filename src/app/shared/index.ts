@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from './components/icon/icon.component';
@@ -6,18 +8,18 @@ import { TintDirective } from './directives/tint.directive';
 import { ButtonComponent } from './components/button/button.component';
 import { AutoFocusDirective } from './directives/auto-focus.directive';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { FabComponent } from './components/fab/fab.component';
-import { LimitedCharacterTextareaComponent } from './components/limited-character-textarea/limited-character-textarea.component';
-import { AddToListFormComponent } from './components/add-to-list-form/add-to-list-form.component';
-import { MaxCharacterCountValidator } from './directives/max-character-count.directive';
-import { MovieGridComponent } from './components/movie-grid/movie-grid.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { AddToListFormComponent } from './components/add-to-list-form/add-to-list-form.component';
+import { MovieGridComponent } from './components/movie-grid/movie-grid.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LimitedCharacterTextareaComponent } from './components/limited-character-textarea/limited-character-textarea.component';
+import { MaxCharacterCountValidator } from './directives/max-character-count.directive';
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     IconComponent,
@@ -27,11 +29,12 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     AutoFocusDirective,
     SpinnerComponent,
     FabComponent,
-    LimitedCharacterTextareaComponent,
+    MovieListComponent,
     AddToListFormComponent,
-    MaxCharacterCountValidator,
     MovieGridComponent,
-    MovieListComponent
+    LimitedCharacterTextareaComponent,
+    MaxCharacterCountValidator,
+    ClickOutsideDirective
   ],
   exports: [
     IconComponent,
@@ -41,10 +44,12 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     AutoFocusDirective,
     SpinnerComponent,
     FabComponent,
-    LimitedCharacterTextareaComponent,
+    MovieListComponent,
     AddToListFormComponent,
     MovieGridComponent,
-    MovieListComponent
+    LimitedCharacterTextareaComponent,
+    MaxCharacterCountValidator,
+    ClickOutsideDirective
   ]
 })
 export class SharedModule { }

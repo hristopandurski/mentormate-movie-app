@@ -1,11 +1,13 @@
 import { Component, OnInit, Input, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 import { Movie } from '../../models';
+import { staggerAnimation } from '../../animations/index';
 
 @Component({
   selector: 'mm-movie-grid',
   templateUrl: './movie-grid.component.html',
   styleUrls: ['./movie-grid.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [staggerAnimation(100, 250)]
 })
 export class MovieGridComponent implements OnInit {
   @Input() movies: Array<Movie>;

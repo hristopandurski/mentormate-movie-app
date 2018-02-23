@@ -1,10 +1,10 @@
+import { SearchModule } from './../core/search/search.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from '../core/header/header.component';
-import { SearchComponent } from '../core/search/search.component';
 import { SharedModule } from '../shared/index';
 import { AuthGuard } from '../core/auth.guard';
 import { NowPlayingComponent } from './now-playing/now-playing.component';
@@ -16,7 +16,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    SearchModule.forRoot()
   ],
   providers: [
     AuthGuard
@@ -24,7 +25,6 @@ import { FavoritesComponent } from './favorites/favorites.component';
   declarations: [
     HomeComponent,
     HeaderComponent,
-    SearchComponent,
     NowPlayingComponent,
     MovieListsComponent,
     MovieListDetailsComponent,

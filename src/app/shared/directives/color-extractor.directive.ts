@@ -1,6 +1,6 @@
 import { Directive, HostListener, EventEmitter, Output, ElementRef, HostBinding } from '@angular/core';
-import { Palette } from 'node-vibrant/lib/color';
 import Vibrant from 'node-vibrant';
+import { Palette } from 'node-vibrant/lib/color';
 
 export interface Colors {
   DarkVibrant: string;
@@ -12,10 +12,10 @@ export interface Colors {
 })
 export class ColorExtractorDirective {
 
-  @Output() extractColors: EventEmitter<any> = new EventEmitter();
+  @Output() extractColors: EventEmitter<Colors> = new EventEmitter();
   @HostListener('load') imageLoadSuccess() {
     this._getColors(this._elementRef.nativeElement)
-      .then((colors: any) => {
+      .then((colors: Colors) => {
         this.extractColors.emit(colors);
       });
   }

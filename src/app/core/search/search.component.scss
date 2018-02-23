@@ -31,7 +31,31 @@
         &:focus{
             transition: 0.25s box-shadow;
             box-shadow: 0px 2px 9px 1px rgba(50, 50, 50, 0.40);
-
+         
         }
+    }
+    &__results{
+        position: absolute;
+        top: 115%;
+        left: 0%;
+        right: 0;
+    }
+
+    &__loader{
+        position: absolute;
+        transform: scale(0.4);
+        top: 50%;
+        left: 30px;
+    }
+
+    &__no-results-item{
+        height: 55px;
+        display: flex;
+        padding-left: 25px;
+        align-items: center;
+        background-color: #fff;
+    }
+    &__hidden{
+        display: none;
     }
 }

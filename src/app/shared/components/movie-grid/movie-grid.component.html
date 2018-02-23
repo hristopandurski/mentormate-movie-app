@@ -2,11 +2,11 @@
 </section>
 <section class="row col-xs-12 row--no-margin pt-50">
   <mm-fab *ngIf="isToggleable" (click)="toggleEditMode()" iconName="add_to_list"></mm-fab>
-  <ng-container *ngIf="movies">
+  <div class="row row--no-margin"  [@staggerAnimation]="movies">
     <mm-movie-poster class="col-xs-2 mb-20" *ngFor="let movie of movies" [movie]="movie" [isSelected]="movie===selectedMovie"
       [isNotFlippable]="isInToggleMode" (selectMovie)="selectMovie($event)" (showMovieDetails)="selectMovie(null)">
     </mm-movie-poster>
-  </ng-container>
+  </div>
   <mm-spinner [class]="'big'" *ngIf="!movies"></mm-spinner>
   <span class="col-xs-12" *ngIf="!movies?.length"> No movies found</span>
 </section>

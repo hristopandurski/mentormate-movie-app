@@ -34,7 +34,7 @@ export class LimitedCharacterTextareaComponent implements OnInit, ControlValueAc
   focus() {
     this.onTouched();
   }
-  constructor( @Self() public controlDir: NgControl) {
+  constructor(public controlDir: NgControl) {
     controlDir.valueAccessor = this;
   }
 

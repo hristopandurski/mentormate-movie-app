@@ -20,6 +20,18 @@ export class MovieService {
 
   constructor(private _http: HttpClient, private _authService: AuthService) { }
 
+  getRecommendedMovies(id: number): Observable<Array<Movie>> {
+    return this._http
+      .get<Results<IMovieInput>>(`movie/${id}/recommendations`)
+      .map(res => res.results.map(m => new Movie(m)));
+  }
+    
+  getSimilarMovies(id: number): Observable<Array<Movie>> {
+    return this._http
+      .get<Results<IMovieInput>>(`movie/${id}/similar`)
+      .map(res => res.results.map(m => new Movie(m)));
+  }
+    
   getMovieById(id: number): Observable<Movie> {
     return this._http.get<IMovieInput>(`movie/${id}`)
       .map(m => new Movie(m));
@@ -55,6 +67,7 @@ export class MovieService {
       .get<Results<IMovieListInput>>(`account/${this._authService.currentAccount$.getValue().id}/lists`)
       .map(res => ({ ...res, results: res.results.map(m => new MovieList(m)) }));
   }
+
   getList(listId: string) {
     return this._http.get<{ name: string, items: Array<IMovieInput> }>(`list/${listId}`)
       .map(res => ({ name: res.name, items: res.items.map(m => new Movie(m)) }));

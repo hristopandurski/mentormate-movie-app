@@ -1,4 +1,14 @@
-<div class="search row">
-  <input type="text" mmAutoFocus class="col-xs-12 search__input"/>
+<div class="search row" (mmClickOutside)="hideResults()">
+  <input type="text" mmAutoFocus class="col-xs-12 search__input" #input (click)="showResults()"/>
   <mm-icon name="search" class="search__icon"></mm-icon>
+  <div [hidden]="!(resultsShown$|async)">
+    <div class="search__results" [@staggerAnimation]="(searching$|async)">
+      <mm-search-item (click)="selectItem(i)" [isSelected]="i === (selectedItemIndex$|async)" [movie]="movie" *ngFor="let movie of (movies$|async); let i = index;">
+      </mm-search-item>
+      <span class="search__no-results-item" *ngIf="!(movies$|async)?.length">
+      No results found
+      </span>
+    </div>
+  </div>
+  <mm-spinner class="search__loader" *ngIf="searching$|async"></mm-spinner>
 </div>
